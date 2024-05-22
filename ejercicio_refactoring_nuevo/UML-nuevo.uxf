@@ -1,0 +1,109 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>798</x><y>396</y><w>216</w><h>156</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+Cliente
+--
+-nombre:String
+-numeroTelefono:String
+--
+&lt;&lt;create&gt;&gt;Cliente(String nombre, String numeroTelefono)
++setNombre(String nombre) 
++getNumeroTelefono() :String
++setNumeroTelefono(String numeroTelefono) 
++&lt;&lt;abstract&gt;&gt;geDescuento() :double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>402</y><w>282</w><h>150</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+Llamada
+--
+-origen:String
+-destino:String
+-duracion:int
+--
++&lt;&lt;create&gt;&gt;Llamada(String tipoLlamada, String origen, String destino, int duracion)
+
++&lt;&lt;abstract&gt;&gt;calcularMontoTotalLlamada():double
++getDuracion():int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1086</x><y>108</y><w>282</w><h>156</h></coordinates><panel_attributes>GestorNumerosDisponibles
+--
+
+--
+
++agregarNumeroTelefono(String str):boolean
++obtenerNumeroLibre():String
++cambiarTipoGenerador(String valor)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>408</x><y>108</y><w>360</w><h>156</h></coordinates><panel_attributes>Empresa
+--
+
+--
++agregarNumeroTelefono(String str):boolean
++obtenerNumeroLibre():String
++registrarUsuarioJuridico(String data, String nombre):ClienteJuridico
++registrarUsuarioFisico(String data, String nombre):ClienteFisico
++registrarLlamadaNacional(Cliente origen, Cliente destino, int duracion):LlamadaNacional
++registrarLlamadaInternacional(Cliente origen, Cliente destino, int duracion):LlamadaInternacional
++calcularMontoTotalLlamadas(Cliente cliente):double
++cantidadDeUsuarios():int 
++existeUsuario(Cliente persona):boolean
++cambiarTipoGenerador(GeneradorNumero generadorNumero)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1362</x><y>120</y><w>234</w><h>270</h></coordinates><panel_attributes>- generador
+
+
+lt=&lt;-
+</panel_attributes><additional_attributes>300;430;300;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>762</x><y>126</y><w>168</w><h>282</h></coordinates><panel_attributes>lt=&lt;-
+
+
+- clientes *</panel_attributes><additional_attributes>200;450;200;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>516</x><y>414</y><w>294</w><h>36</h></coordinates><panel_attributes>- llamadas *
+
+lt=&lt;-
+</panel_attributes><additional_attributes>10;20;470;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>978</x><y>648</y><w>252</w><h>156</h></coordinates><panel_attributes>ClienteFisico
+--
+_descuentoFis:double_
+-dni:String
+--
+&lt;&lt;create&gt;&gt;ClienteFisico(String data, String nombre, String numeroTelefono)
++geDescuento() :double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>648</y><w>264</w><h>156</h></coordinates><panel_attributes>ClienteJuridico
+--
+_descuentoJor:double_
+-cuit:String
+--
+&lt;&lt;create&gt;&gt;ClienteJuridico(String data, String nombre, String numeroTelefono)
++geDescuento() :double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>654</y><w>288</w><h>150</h></coordinates><panel_attributes>LlamadaInternacional
+--
+
+--
++&lt;&lt;create&gt;&gt;LlamadInternacional(String tipoLlamada, String origen, String destino, int duracion)
++calcularMontoTotalLlamada():double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>654</y><w>282</w><h>150</h></coordinates><panel_attributes>LlamadaNacional
+--
+
+--
++&lt;&lt;create&gt;&gt;LlamadaNacionalString tipoLlamada, String origen, String destino, int duracion)
++calcularMontoTotalLlamada():double
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1644</x><y>648</y><w>180</w><h>156</h></coordinates><panel_attributes>GeneradorRandom
+--
+
+--
+
++obtenerNumeroLibre():String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1458</x><y>648</y><w>168</w><h>156</h></coordinates><panel_attributes>GeneradorUltimo
+--
+
+--
++obtenerNumeroLibre():String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1398</x><y>378</y><w>282</w><h>156</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+GeneradorNumeros
+--
+-lineas:String[*]
+--
+
++getLineas():SortedSet&lt;String&gt;
++setLineas()
++agregarNumero():boolean
++&lt;&lt;abstract&gt;&gt;obtenerNumeroLibre():String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1254</x><y>648</y><w>174</w><h>156</h></coordinates><panel_attributes>GeneradorPrimero
+--
+
+--
+
++obtenerNumeroLibre():String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>912</x><y>546</y><w>192</w><h>114</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;300;170</additional_attributes></element><element><id>Relation</id><coordinates><x>810</x><y>546</y><w>78</w><h>114</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>110;10;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>1536</x><y>528</y><w>24</w><h>132</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;10;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>1332</x><y>528</y><w>174</w><h>132</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>270;10;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>1608</x><y>528</y><w>144</w><h>132</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;220;200</additional_attributes></element><element><id>Relation</id><coordinates><x>762</x><y>114</y><w>336</w><h>48</h></coordinates><panel_attributes>- guia
+
+
+lt=&lt;-
+</panel_attributes><additional_attributes>540;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>138</x><y>546</y><w>216</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>340;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>372</x><y>546</y><w>144</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;220;180</additional_attributes></element></diagram>

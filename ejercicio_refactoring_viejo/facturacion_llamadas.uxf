@@ -1,0 +1,66 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>621</x><y>486</y><w>252</w><h>234</h></coordinates><panel_attributes>Cliente
+--
+-tipo:String
+-nombre:String
+-numeroTelefono:String
+-cuit:String
+-dni:String
+--
++getTipo():String
++setTipo(String tipo)
++getNombre():String
++setNombre(String nombre) 
++getNumeroTelefono() :String
++setNumeroTelefono(String numeroTelefono) 
++getCuit() :String
++setCuit(String cuit) 
++getDNI() :String
++setDNI(String dni) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>45</x><y>495</y><w>423</w><h>225</h></coordinates><panel_attributes>Llamada
+--
+-tipoDeLlamada:String
+-origen:String
+-destino:String
+-duracion:int
+--
++&lt;&lt;create&gt;&gt;Llamada(String tipoLlamada, String origen, String destino, int duracion)
++getTipoDeLlamada():String
++getRemitente():String
++getDuracion():String
++getOrigen():String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>882</x><y>45</y><w>423</w><h>234</h></coordinates><panel_attributes>GestorNumerosDisponibles
+--
+-lineas:String[*]
+- tipoGenerador:String
+--
+
++getLineas():SortedSet&lt;String&gt;
++obtenerNumeroLibre():String
++getDuracion():String
++cambiarTipoGenerador(String valor)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>45</y><w>252</w><h>234</h></coordinates><panel_attributes>Empresa
+--
+_descuentoJor:double_
+_descuentoFis:double_
+--
++agregarNumeroTelefono(String str):boolean
++obtenerNumeroLibre():String
++registrarUsuario(String data, String nombre, String tipo):Cliente
++registrarLlamada(Cliente origen, Cliente destino, String t, int duracion):Llamada
++calcularMontoTotalLlamadas(Cliente cliente):double
++cantidadDeUsuarios():int 
++existeUsuario(Cliente persona):boolean
++getGestorNumeros():GestorNumerosDisponibles
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>657</x><y>54</y><w>243</w><h>72</h></coordinates><panel_attributes>- guia
+
+
+lt=&lt;-
+</panel_attributes><additional_attributes>250;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>72</y><w>189</w><h>441</h></coordinates><panel_attributes>lt=&lt;-
+
+
+- llamadas *</panel_attributes><additional_attributes>10;470;10;10;190;10</additional_attributes></element><element><id>Relation</id><coordinates><x>657</x><y>72</y><w>162</w><h>432</h></coordinates><panel_attributes>lt=&lt;-
+
+
+- clientes *</panel_attributes><additional_attributes>100;460;100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>459</x><y>513</y><w>180</w><h>54</h></coordinates><panel_attributes>- llamadas *
+
+lt=&lt;-
+</panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element></diagram>
